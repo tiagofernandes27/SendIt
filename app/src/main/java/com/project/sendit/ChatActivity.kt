@@ -27,6 +27,10 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageList : ArrayList<Message>
     private lateinit var mDbRef : FirebaseDatabase
 
+    var senderUid : String = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
+
+
     var receiverRoom: String? = null
     var senderRoom: String? = null
 
@@ -39,7 +43,7 @@ class ChatActivity : AppCompatActivity() {
 
         val userName = findViewById<TextView>(R.id.textViewUserName)
 
-        val senderUid = FirebaseAuth.getInstance().currentUser?.uid
+        //senderUid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         mDbRef = Firebase.database("https://chat-b06e6-default-rtdb.europe-west1.firebasedatabase.app/")
 
         senderRoom = receiverUid + senderUid
@@ -91,8 +95,7 @@ class ChatActivity : AppCompatActivity() {
 
             if (message == "!play" || message == "!game"){
 
-                val gameIntent = Intent(this, GameView::class.java)
-                finish()
+                val gameIntent = Intent(this, MainActivity::class.java)
                 startActivity(gameIntent)
 
             } else {

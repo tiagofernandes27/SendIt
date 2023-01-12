@@ -46,6 +46,12 @@
         <activity
             android:name=".ForgotPassword"
             android:exported="false"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
     </application>
 
 </manifest>
