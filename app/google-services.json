@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458271837705",
+    "project_id": "chat-b06e6",
+    "storage_bucket": "chat-b06e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458271837705:android:344e3c6ab27f520c4a72d8",
+        "android_client_info": {
+          "package_name": "com.project.sendit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458271837705-mjirb9lvsa2mpn94noajp105ou2trnl8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4_wsLnAPC0R0bNka3oahL0kgo1jbENVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458271837705-mjirb9lvsa2mpn94noajp105ou2trnl8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
