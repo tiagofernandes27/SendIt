@@ -78,7 +78,7 @@ class Login : AppCompatActivity() {
         val notificationId = SimpleDateFormat("ddHHmmss", Locale.FRENCH).format(data).toInt()
 
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        val pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT)
 
         val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
 

@@ -18,7 +18,10 @@ class TriangleSprite {
 
     var hide = false
 
-    constructor() {
+    constructor(squareSize : Float) {
+
+        radius = squareSize / 4
+
         RectF()
         detectCollision = RectF(
             x - radius,

@@ -14,13 +14,22 @@ class StarSprite {
     var angle = Math.PI / 5f
     var ratio = 5 / 2
     var outerRadius = 35f
+    var initialOuterRadius = outerRadius
     var radiusSpeed = 1f
+
+    var squareSize = 0f
 
     var isRadiusTotal = false
 
     var hide = true
 
-    constructor() {
+    constructor(squareSize : Float) {
+
+        this.squareSize = squareSize
+
+        outerRadius = squareSize / 4 - 10
+        initialOuterRadius = outerRadius
+
         RectF()
         detectCollision = RectF(
             x - outerRadius,
@@ -32,10 +41,10 @@ class StarSprite {
 
 
     fun update(){
-        if (outerRadius == 80f)
+        if (outerRadius == squareSize/2)
             isRadiusTotal = true
 
-        if (outerRadius == 25f)
+        if (outerRadius == initialOuterRadius)
             isRadiusTotal = false
 
         if (isRadiusTotal)

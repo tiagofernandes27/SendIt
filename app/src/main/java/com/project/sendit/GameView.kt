@@ -34,7 +34,7 @@ class GameView : SurfaceView, Runnable {
     private var xCoordinate = 0f
     private var yCoordinate = 0f
 
-    var circleSprite = CircleSprite()
+    lateinit var circleSprite : CircleSprite
 
     var circlePrevX = 0f
     var circlePrevY = 0f
@@ -43,10 +43,10 @@ class GameView : SurfaceView, Runnable {
 
     var triangleSprites = arrayListOf<TriangleSprite>()
 
-    var starSprite = StarSprite()
+    lateinit var starSprite : StarSprite
 
     // the size of each square in the grid
-    val squareSize = 150
+    var squareSize = 150
 
     // the number of rows and columns in the grid
     val rows = 7
@@ -90,6 +90,11 @@ class GameView : SurfaceView, Runnable {
         this.screenWidth = screenWidth
         this.screenHeight = screenHeight
 
+        screenSizeAdjustment()
+
+        circleSprite = CircleSprite(squareSize.toFloat())
+        starSprite = StarSprite(squareSize.toFloat())
+
         mDbRef = Firebase.database("https://chat-b06e6-default-rtdb.europe-west1.firebasedatabase.app/")
 
         chatActivity = ChatActivity()
@@ -106,6 +111,14 @@ class GameView : SurfaceView, Runnable {
         grid()
         levelManager()
         changeLevel()
+    }
+
+    fun screenSizeAdjustment(){
+        do{
+            squareSize -= 10
+            gridWidth = cols * squareSize
+            gridHeight = rows * squareSize
+        }while (gridWidth > screenWidth)
     }
 
     fun levelManager(){
@@ -128,7 +141,6 @@ class GameView : SurfaceView, Runnable {
             line = fileReader.readLine()
         }
         fileReader.close()
-        println(levels)
     }
 
     fun changeLevel(){
@@ -167,7 +179,7 @@ class GameView : SurfaceView, Runnable {
 
         for (l in levels[currentLevel - 1]) {
             if (l == 2){
-                val squareSprite = SquareSprite()
+                val squareSprite = SquareSprite(squareSize.toFloat())
 
                 squareSprite.x = gridSquares[i].x + squareSize/2
                 squareSprite.y = gridSquares[i].y  + squareSize/2
@@ -215,7 +227,7 @@ class GameView : SurfaceView, Runnable {
 
         for (l in levels[currentLevel - 1]) {
             if (l == 3 || l == 31 || l == 32 || l == 33 || l == 34){
-                val triangleSprite = TriangleSprite()
+                val triangleSprite = TriangleSprite(squareSize.toFloat())
 
                 triangleSprite.x = gridSquares[i].x + squareSize/2
                 triangleSprite.y = gridSquares[i].y + squareSize/2

@@ -13,12 +13,15 @@ class SquareSprite {
 
     var radius = 60.0f
 
-    var detection = radius + 12
+    var detection = 0f
 
     var color = Color.GREEN
 
 
-    constructor() {
+    constructor(squareSize : Float) {
+
+        radius = squareSize / 2 - 10
+        detection = radius + radius/5
 
         RectF()
         detectCollision = RectF(

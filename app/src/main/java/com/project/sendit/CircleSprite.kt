@@ -21,7 +21,9 @@ class CircleSprite {
 
     var isMoving = false
 
-    constructor() {
+    constructor(squareSize : Float) {
+
+        radius = squareSize / 2 - 10
 
         RectF()
         detectCollision = RectF(
